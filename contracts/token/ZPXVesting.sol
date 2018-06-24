@@ -140,8 +140,6 @@ contract TokenVesting is Ownable {
     } else if (block.timestamp >= start.add(duration) || revoked[token]) {
       return totalBalance;
     } else {
-      // get current phase
-      // 100000 - 80000
       if ( isGradedVesting ){
         uint vestingInterval = duration.div(vestingPhaseCount);
         uint phasesElapsed = now.sub(start).div(vestingInterval);
